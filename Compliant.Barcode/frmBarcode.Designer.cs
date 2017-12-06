@@ -35,9 +35,9 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(-1, -1);
+            this.button1.Location = new System.Drawing.Point(20, -6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 55);
+            this.button1.Size = new System.Drawing.Size(152, 126);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(174, 53);
+            this.ClientSize = new System.Drawing.Size(184, 121);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
