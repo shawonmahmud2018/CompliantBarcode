@@ -18,17 +18,36 @@ namespace Compliant.Barcode
 
         private void frmCamera_Load(object sender, EventArgs e)
         {
-            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            try
+            {
+                videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
-            //if (videoDevices.Count > 1)
-            //    videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            //else
-            //    videoDevice = new VideoCaptureDevice(videoDevices[1].MonikerString);
+                if (videoDevices.Count == 0)
+                {
+                    throw new Exception();
+                }
 
-            videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            StartCameras();
+                //if (videoDevices.Count > 1)
+                //    videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                //else
+                //    videoDevice = new VideoCaptureDevice(videoDevices[1].MonikerString);
+
+                videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                StartCameras();
+            }
+            catch
+            {
+                MessageBox.Show("Camera not found !");
+            }
         }
+        // Start cameras
+        private void StartCameras()
+        {
+            videoSourcePlayer.VideoSource = videoDevice;
+            videoSourcePlayer.Start();
 
+            timer1.Start();
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             var bitmap = videoSourcePlayer.GetCurrentVideoFrame();
@@ -44,24 +63,17 @@ namespace Compliant.Barcode
                 SendKeys.SendWait("^v");
             }
         }
-        // Start cameras
-        private void StartCameras()
-        {
-            videoSourcePlayer.VideoSource = videoDevice;
-            videoSourcePlayer.Start();
-
-            timer1.Start();
-        }
+        
         // Stop cameras
         private void StopCameras()
         {
             if (videoSourcePlayer.VideoSource != null)
             {
                 // stop video device
+                timer1.Stop();
                 videoSourcePlayer.SignalToStop();
                 videoSourcePlayer.WaitForStop();
-                videoSourcePlayer.VideoSource = null;
-                timer1.Stop();
+                videoSourcePlayer.VideoSource = null;                
                 this.Hide();
             }
         }
