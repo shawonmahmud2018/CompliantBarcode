@@ -41,18 +41,17 @@
             this.panel1.Controls.Add(this.videoSourcePlayer);
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(448, 329);
+            this.panel1.Size = new System.Drawing.Size(471, 329);
             this.panel1.TabIndex = 0;
             // 
             // videoSourcePlayer
             // 
-            this.videoSourcePlayer.AutoSizeControl = true;
             this.videoSourcePlayer.BackColor = System.Drawing.SystemColors.ControlDark;
             this.videoSourcePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.videoSourcePlayer.ForeColor = System.Drawing.Color.SeaGreen;
-            this.videoSourcePlayer.Location = new System.Drawing.Point(63, 43);
+            this.videoSourcePlayer.Location = new System.Drawing.Point(7, 7);
             this.videoSourcePlayer.Name = "videoSourcePlayer";
-            this.videoSourcePlayer.Size = new System.Drawing.Size(322, 242);
+            this.videoSourcePlayer.Size = new System.Drawing.Size(456, 316);
             this.videoSourcePlayer.TabIndex = 0;
             this.videoSourcePlayer.VideoSource = null;
             // 
@@ -64,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 340);
+            this.ClientSize = new System.Drawing.Size(480, 340);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
