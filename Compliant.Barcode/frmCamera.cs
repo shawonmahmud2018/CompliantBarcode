@@ -58,9 +58,17 @@ namespace Compliant.Barcode
             var result = reader.Decode((Bitmap)bitmap.Clone());
             if (result != null)
             {
-                Clipboard.SetText(result.Text);
-                StopCameras();
-                SendKeys.SendWait("^v");
+                if (result.BarcodeFormat.ToString().Equals("CODE_128") || result.BarcodeFormat.ToString().Equals("DATA_MATRIX"))
+                {
+                    Clipboard.SetText(result.Text);
+                    StopCameras();
+                    SendKeys.SendWait("^v");
+                }
+                //else
+                //{
+                //    StopCameras();
+                //    MessageBox.Show(string.Format("Barcode format ({0}) is not valid",result.BarcodeFormat.ToString()));
+                //}
             }
         }
         
