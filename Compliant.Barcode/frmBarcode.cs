@@ -32,8 +32,8 @@ namespace Compliant.Barcode
 
         private void frmBarcode_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            WindowState = FormWindowState.Minimized;
+            //e.Cancel = true;
+            //WindowState = FormWindowState.Minimized;
         }
 
         //protected override CreateParams CreateParams
