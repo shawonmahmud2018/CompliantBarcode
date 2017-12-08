@@ -67,7 +67,7 @@ namespace Compliant.Barcode
                 //else
                 //{
                 //    StopCameras();
-                //    MessageBox.Show(string.Format("Barcode format ({0}) is not valid",result.BarcodeFormat.ToString()));
+                //    MessageBox.Show(string.Format("Barcode format ({0}) is not valid", result.BarcodeFormat.ToString()));
                 //}
             }
         }

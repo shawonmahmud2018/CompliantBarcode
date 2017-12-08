@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -22,6 +23,13 @@ namespace Compliant.Barcode
             InitializeComponent();
             //this.FormBorderStyle = FormBorderStyle.None;
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
+
+            //this.Location = new Point(1000,100);
+            //this.Location = new Point(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y);
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2 - this.Height;
+            this.Left = (Screen.PrimaryScreen.Bounds.Width - (this.Width/2)) - (this.Width) ;
         }
 
         private void button1_Click(object sender, System.EventArgs e)
@@ -34,6 +42,9 @@ namespace Compliant.Barcode
         {
             //e.Cancel = true;
             //WindowState = FormWindowState.Minimized;
+            //StopCameras();
+            var form = new frmCamera();
+            form.Close();
         }
 
         //protected override CreateParams CreateParams

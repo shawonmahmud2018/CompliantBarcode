@@ -53,7 +53,7 @@
             this.MinimumSize = new System.Drawing.Size(211, 169);
             this.Name = "frmBarcode";
             this.Opacity = 0.9D;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBarcode_FormClosing);
             this.ResumeLayout(false);
