@@ -40,11 +40,8 @@ namespace Compliant.Barcode
 
         private void frmBarcode_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //e.Cancel = true;
-            //WindowState = FormWindowState.Minimized;
-            //StopCameras();
-            var form = new frmCamera();
-            form.Close();
+            e.Cancel = true;
+            WindowState = FormWindowState.Minimized;
         }
 
         //protected override CreateParams CreateParams
