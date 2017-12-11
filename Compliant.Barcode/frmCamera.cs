@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using System;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 using ZXing;
@@ -27,12 +28,23 @@ namespace Compliant.Barcode
                     throw new Exception();
                 }
 
+                string value = ConfigurationManager.AppSettings["IsRearCameraEnabled"];
+                if (value.Equals("true"))
+                {
+                    videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                }
+                else if (value.Equals("false"))
+                {
+                    videoDevice = new VideoCaptureDevice(videoDevices[1].MonikerString);
+                }
+
                 //if (videoDevices.Count > 1)
                 //    videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
                 //else
                 //    videoDevice = new VideoCaptureDevice(videoDevices[1].MonikerString);
 
-                videoDevice = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                //videoDevice = new VideoCaptureDevice(videoDevices[1].MonikerString);
+
                 StartCameras();
             }
             catch
