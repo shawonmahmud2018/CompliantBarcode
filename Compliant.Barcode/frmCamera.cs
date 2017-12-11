@@ -85,7 +85,6 @@ namespace Compliant.Barcode
                 this.Hide();
             }
         }
-
         private void frmCamera_Closing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Do you want to close camera?", "Compliant Camera", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -97,6 +96,23 @@ namespace Compliant.Barcode
             else
             {
                 e.Cancel = true;
+            }
+        }
+        protected override bool ShowWithoutActivation
+        {
+            get { return true; }
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams baseParams = base.CreateParams;
+
+                const int WS_EX_NOACTIVATE = 0x08000000;
+                const int WS_EX_TOOLWINDOW = 0x00000080;
+                baseParams.ExStyle |= (int)(WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW);
+
+                return baseParams;
             }
         }
     }
